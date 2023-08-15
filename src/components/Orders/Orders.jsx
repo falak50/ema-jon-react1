@@ -1,10 +1,10 @@
 
 import Cart from '../Cart/Cart';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import './Oders.css'
 import { useState } from 'react';
-import { removeFromDb } from '../../utilities/fakedb';
+import { deleteShoppingCart, removeFromDb } from '../../utilities/fakedb';
 /// but we do not inpuit shop-container how it  work 
 const Orders = () => {
     const savedCart  = useLoaderData();
@@ -14,6 +14,11 @@ const Orders = () => {
        const ramaining  = cart.filter(pd => pd.id !== id )
        setCart(ramaining);
        removeFromDb(id);
+    }
+
+    const handleClearCart = () => {
+      setCart([]);
+      deleteShoppingCart();
     }
     
     return (
@@ -29,7 +34,15 @@ const Orders = () => {
 
            </div>
            <div className='cart-container'>
-            <Cart cart={cart}></Cart>
+            <Cart 
+            cart={cart}
+            handleClearCart={handleClearCart}
+            >
+              <Link className='proceed-link' to="/checkout">
+                <button className='btn-proceed'>Proced Checkout</button>
+              </Link>   
+              
+            </Cart>
            </div>
 
         </div>
