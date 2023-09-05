@@ -10,7 +10,7 @@ const Header = () => {
     const handleLogout = () =>{
         logOut()
         .then(r => {
-            console.log('log out done');
+            console.log('log out done',r);
         })
         .catch(e => {
             console.log(e);
@@ -25,8 +25,8 @@ const Header = () => {
                   <Link to="/invertory">Inventory</Link>
                   <Link to="login">Login</Link>
                   <Link to="singup">Sing Up</Link>
-                  {user && <span>welcome {user.email}
-                  <button onClick={handleLogout}>Sign out</button>
+                  {user && <span className='text-color'>Welcome {user.email}
+                  <button className='singout_btn' onClick={handleLogout}>Sign out</button>
                   </span> }
           </div>
         </nav>

@@ -45,3 +45,11 @@ background: rgba(232, 33, 23, 0.776);
 .label{
     margin-bottom: 10px;
 }
+
+.ptext :hover{
+    color: rgb(92, 14, 14);
+    font-size: medium;
+    font-weight: 400;
+    transition: .6s;
+
+}

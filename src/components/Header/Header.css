@@ -19,3 +19,12 @@ nav.header a:hover{
 .header img{
     height: 80px;
 }
+.text-color{
+  color: white;
+  padding: 5px;
+  margin: 20px 20px;
+}
+.singout_btn{
+  margin-left: 30px;
+  background-color: #1C2B35;
+}
